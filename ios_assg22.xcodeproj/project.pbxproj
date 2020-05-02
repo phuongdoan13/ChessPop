@@ -15,6 +15,10 @@
 		75435FC6245D1D97005DE2A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75435FC4245D1D97005DE2A1 /* LaunchScreen.storyboard */; };
 		75435FD1245D1D97005DE2A1 /* ios_assg22Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75435FD0245D1D97005DE2A1 /* ios_assg22Tests.swift */; };
 		75435FDC245D1D97005DE2A1 /* ios_assg22UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75435FDB245D1D97005DE2A1 /* ios_assg22UITests.swift */; };
+		75435FEC245D2649005DE2A1 /* MainNavigatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75435FEB245D2649005DE2A1 /* MainNavigatorController.swift */; };
+		75435FEE245D2A38005DE2A1 /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75435FED245D2A38005DE2A1 /* NewGameViewController.swift */; };
+		75435FF0245D30CD005DE2A1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75435FEF245D30CD005DE2A1 /* GameViewController.swift */; };
+		75435FF2245D312E005DE2A1 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75435FF1245D312E005DE2A1 /* HighScoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		75435FD7245D1D97005DE2A1 /* ios_assg22UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ios_assg22UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75435FDB245D1D97005DE2A1 /* ios_assg22UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_assg22UITests.swift; sourceTree = "<group>"; };
 		75435FDD245D1D97005DE2A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75435FEB245D2649005DE2A1 /* MainNavigatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigatorController.swift; sourceTree = "<group>"; };
+		75435FED245D2A38005DE2A1 /* NewGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
+		75435FEF245D30CD005DE2A1 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		75435FF1245D312E005DE2A1 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +109,11 @@
 			children = (
 				75435FB9245D1D95005DE2A1 /* AppDelegate.swift */,
 				75435FBB245D1D95005DE2A1 /* SceneDelegate.swift */,
+				75435FEB245D2649005DE2A1 /* MainNavigatorController.swift */,
 				75435FBD245D1D95005DE2A1 /* ViewController.swift */,
+				75435FED245D2A38005DE2A1 /* NewGameViewController.swift */,
+				75435FEF245D30CD005DE2A1 /* GameViewController.swift */,
+				75435FF1245D312E005DE2A1 /* HighScoreViewController.swift */,
 				75435FBF245D1D95005DE2A1 /* Main.storyboard */,
 				75435FC2245D1D97005DE2A1 /* Assets.xcassets */,
 				75435FC4245D1D97005DE2A1 /* LaunchScreen.storyboard */,
@@ -260,7 +272,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				75435FBE245D1D95005DE2A1 /* ViewController.swift in Sources */,
+				75435FF2245D312E005DE2A1 /* HighScoreViewController.swift in Sources */,
+				75435FEC245D2649005DE2A1 /* MainNavigatorController.swift in Sources */,
 				75435FBA245D1D95005DE2A1 /* AppDelegate.swift in Sources */,
+				75435FEE245D2A38005DE2A1 /* NewGameViewController.swift in Sources */,
+				75435FF0245D30CD005DE2A1 /* GameViewController.swift in Sources */,
 				75435FBC245D1D95005DE2A1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
