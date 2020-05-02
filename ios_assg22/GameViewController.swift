@@ -10,7 +10,8 @@ import UIKit
 
 class GameViewController: UIViewController {
 	var rankingDictionary = [String : String]()
-	
+	var time: Int = 0
+	@IBOutlet weak var timeLb: UILabel!
 	@IBOutlet weak var nameTf: UITextField!
 	
 	@IBOutlet weak var scoreTf: UITextField!
@@ -27,7 +28,7 @@ class GameViewController: UIViewController {
 	}
 	
 	override func viewDidLoad() {
-        
+		timeLb.text = String(time)
 		super.viewDidLoad()
 
         // Do any additional setup after loading the view.

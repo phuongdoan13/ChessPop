@@ -13,14 +13,11 @@ class HighScoreViewController: UIViewController {
 	@IBOutlet weak var scoreLb: UILabel!
 	
     override func viewDidLoad() {
-		
 		if let rankingDictionary = UserDefaults.standard.dictionary(forKey: "ranking") as! [String: String]?{
 			nameLb.text = rankingDictionary["userName"]
 			scoreLb.text = rankingDictionary["userScore"]
 		}
-		
 		super.viewDidLoad()
-        
     }
 	
 
