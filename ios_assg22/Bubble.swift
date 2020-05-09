@@ -28,12 +28,12 @@ class Bubble: UIButton {
 			self.value = 1
 		case 41...70:
 			let K_or_B = Int.random(in: 0...1)
-			if(K_or_B == 0){
-				self.setImage(UIImage(named: "Knight"), for: UIControl.State.normal)
-			}
-			else{
-				self.setImage(UIImage(named: "Bishop"), for: UIControl.State.normal)
-			}
+				if(K_or_B == 0){
+					self.setImage(UIImage(named: "Knight"), for: UIControl.State.normal)
+				}
+				else{
+					self.setImage(UIImage(named: "Bishop"), for: UIControl.State.normal)
+				}
 			self.value = 2
 		case 71...85:
 			self.setImage(UIImage(named: "Rook"), for: UIControl.State.normal)

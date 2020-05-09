@@ -299,40 +299,40 @@
                                 <rect key="frame" x="143" y="335" width="33.5" height="20.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Timer" translatesAutoresizingMaskIntoConstraints="NO" id="uRS-1w-kGo">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Timer" translatesAutoresizingMaskIntoConstraints="NO" id="uRS-1w-kGo">
                                 <rect key="frame" x="69" y="65" width="54" height="47"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Score" translatesAutoresizingMaskIntoConstraints="NO" id="vIp-QW-2uI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Score" translatesAutoresizingMaskIntoConstraints="NO" id="vIp-QW-2uI">
                                 <rect key="frame" x="290" y="64" width="54" height="48"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" misplaced="YES" image="Highscores" translatesAutoresizingMaskIntoConstraints="NO" id="kas-DV-c3b">
                                 <rect key="frame" x="182" y="63" width="51" height="51"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="hscore" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LN-zI-ZcP">
-                                <rect key="frame" x="180" y="78" width="53" height="20.5"/>
-                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hscore" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LN-zI-ZcP">
+                                <rect key="frame" x="163" y="78" width="88" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vN-TK-JQK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vN-TK-JQK">
                                 <rect key="frame" x="74" y="78" width="44" height="20.5"/>
-                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="25"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kA-h1-dsa">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kA-h1-dsa">
                                 <rect key="frame" x="183" y="661" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="save:" destination="AL3-Pp-OBt" eventType="touchUpInside" id="kca-gI-kQu"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsp-Fs-vSE">
-                                <rect key="frame" x="296" y="78" width="43" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsp-Fs-vSE">
+                                <rect key="frame" x="258" y="63" width="118" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="43" id="uQH-GN-xuy"/>
+                                    <constraint firstAttribute="width" constant="118" id="uQH-GN-xuy"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="25"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -344,24 +344,24 @@
                             <constraint firstItem="KVR-W9-NKt" firstAttribute="bottom" secondItem="uRS-1w-kGo" secondAttribute="bottom" constant="696" id="2hx-wM-ReV"/>
                             <constraint firstItem="vIp-QW-2uI" firstAttribute="centerX" secondItem="wsp-Fs-vSE" secondAttribute="centerX" id="3X4-Fd-l3i"/>
                             <constraint firstItem="KVR-W9-NKt" firstAttribute="trailing" secondItem="vIp-QW-2uI" secondAttribute="trailing" constant="70" id="4Cf-8H-cRF"/>
-                            <constraint firstItem="8vN-TK-JQK" firstAttribute="firstBaseline" secondItem="1LN-zI-ZcP" secondAttribute="firstBaseline" constant="7.5" id="4V9-40-RhI"/>
-                            <constraint firstItem="1LN-zI-ZcP" firstAttribute="baseline" secondItem="wsp-Fs-vSE" secondAttribute="baseline" constant="5" id="8JG-k5-1Aa"/>
-                            <constraint firstItem="1LN-zI-ZcP" firstAttribute="centerX" secondItem="7kA-h1-dsa" secondAttribute="centerX" id="8hh-Wy-iyP"/>
+                            <constraint firstItem="8vN-TK-JQK" firstAttribute="firstBaseline" secondItem="1LN-zI-ZcP" secondAttribute="firstBaseline" id="4V9-40-RhI"/>
+                            <constraint firstItem="1LN-zI-ZcP" firstAttribute="baseline" secondItem="wsp-Fs-vSE" secondAttribute="baseline" constant="-14" id="8JG-k5-1Aa"/>
+                            <constraint firstItem="1LN-zI-ZcP" firstAttribute="centerX" secondItem="7kA-h1-dsa" secondAttribute="centerX" constant="1" id="8hh-Wy-iyP"/>
                             <constraint firstItem="8vN-TK-JQK" firstAttribute="top" secondItem="KVR-W9-NKt" secondAttribute="top" constant="22" id="9pa-ZL-ZFK"/>
                             <constraint firstItem="kas-DV-c3b" firstAttribute="centerX" secondItem="VL4-cr-RdK" secondAttribute="centerX" id="CVh-fJ-o2v"/>
                             <constraint firstItem="vIp-QW-2uI" firstAttribute="leading" secondItem="kas-DV-c3b" secondAttribute="trailing" constant="57" id="EOB-Fz-rO2"/>
                             <constraint firstItem="1LN-zI-ZcP" firstAttribute="centerX" secondItem="ZNQ-91-CGZ" secondAttribute="centerX" id="OBK-Ah-aAC"/>
                             <constraint firstItem="vIp-QW-2uI" firstAttribute="top" secondItem="KVR-W9-NKt" secondAttribute="top" constant="8" id="PA3-dk-ZaY"/>
                             <constraint firstItem="uRS-1w-kGo" firstAttribute="leading" secondItem="KVR-W9-NKt" secondAttribute="leading" constant="69" id="Pei-c9-vnl"/>
-                            <constraint firstItem="wsp-Fs-vSE" firstAttribute="leading" secondItem="kas-DV-c3b" secondAttribute="trailing" constant="63" id="Tul-iy-GXp"/>
-                            <constraint firstItem="1LN-zI-ZcP" firstAttribute="firstBaseline" secondItem="wsp-Fs-vSE" secondAttribute="firstBaseline" constant="-7.5" id="Wu8-DU-YXS"/>
+                            <constraint firstItem="wsp-Fs-vSE" firstAttribute="leading" secondItem="kas-DV-c3b" secondAttribute="trailing" constant="25" id="Tul-iy-GXp"/>
+                            <constraint firstItem="1LN-zI-ZcP" firstAttribute="firstBaseline" secondItem="wsp-Fs-vSE" secondAttribute="firstBaseline" constant="15" id="Wu8-DU-YXS"/>
                             <constraint firstItem="uRS-1w-kGo" firstAttribute="centerY" secondItem="8vN-TK-JQK" secondAttribute="centerY" id="cYG-mK-x9c"/>
-                            <constraint firstItem="kas-DV-c3b" firstAttribute="trailing" secondItem="1LN-zI-ZcP" secondAttribute="trailing" id="h8d-8D-gJW"/>
-                            <constraint firstItem="1LN-zI-ZcP" firstAttribute="leading" secondItem="uRS-1w-kGo" secondAttribute="trailing" constant="57" id="jsi-Aa-yDZ"/>
+                            <constraint firstItem="kas-DV-c3b" firstAttribute="trailing" secondItem="1LN-zI-ZcP" secondAttribute="trailing" constant="-18" id="h8d-8D-gJW"/>
+                            <constraint firstItem="1LN-zI-ZcP" firstAttribute="leading" secondItem="uRS-1w-kGo" secondAttribute="trailing" constant="40" id="jsi-Aa-yDZ"/>
                             <constraint firstItem="1LN-zI-ZcP" firstAttribute="centerY" secondItem="kas-DV-c3b" secondAttribute="centerY" id="mtP-0S-Tbc"/>
                             <constraint firstItem="vIp-QW-2uI" firstAttribute="centerY" secondItem="wsp-Fs-vSE" secondAttribute="centerY" id="puQ-JO-I3V"/>
                             <constraint firstItem="uRS-1w-kGo" firstAttribute="centerX" secondItem="8vN-TK-JQK" secondAttribute="centerX" id="swi-4p-rg7"/>
-                            <constraint firstItem="8vN-TK-JQK" firstAttribute="baseline" secondItem="1LN-zI-ZcP" secondAttribute="baseline" constant="-5" id="u3d-qH-KF1"/>
+                            <constraint firstItem="8vN-TK-JQK" firstAttribute="baseline" secondItem="1LN-zI-ZcP" secondAttribute="baseline" constant="-0.5" id="u3d-qH-KF1"/>
                             <constraint firstItem="kas-DV-c3b" firstAttribute="centerX" secondItem="ZNQ-91-CGZ" secondAttribute="centerX" id="uPJ-M3-lfd"/>
                             <constraint firstItem="kas-DV-c3b" firstAttribute="centerX" secondItem="rql-7A-avE" secondAttribute="centerX" id="zUu-Wa-79w"/>
                             <constraint firstItem="kas-DV-c3b" firstAttribute="top" secondItem="KVR-W9-NKt" secondAttribute="top" constant="7" id="zxL-o1-nen"/>
@@ -381,7 +381,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1T-FI-nhU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="-137"/>
+            <point key="canvasLocation" x="1721.7391304347827" y="-137.27678571428569"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="GMB-Te-Ry6">

@@ -13,9 +13,9 @@ class GameViewController: UIViewController {
 	var time: Int = 0
 	var timer: Timer?
 	var maxBubbles: Int = 0
-	var score: Int = 0
+	var score: Double = 0
 	var bArray = Array<Bubble>()
-	
+	var comboStack = StackInt()
 	let MAXIMUM_DIAMETER :UInt32 = 100
 	let TOP_BARS_HEIGHT :UInt32 = 200
 	let PADDING :UInt32 = 10
@@ -104,6 +104,7 @@ class GameViewController: UIViewController {
 		}
 		return true
 	}
+	
 	var screenWidth: UInt32{
 		// get the Width of the screen
 		return UInt32(UIScreen.main.bounds.width)
@@ -118,7 +119,7 @@ class GameViewController: UIViewController {
 	// REMOVE BUBBLE //
 	@objc func bubblePressed(_ bubble:Bubble){
 		// # Remove the bubble from the screen
-		score = score + bubble.value
+		score = score + combo(bubble.value)
 		scoreLb.text = String(score)
 		let animation = CABasicAnimation(keyPath:"opacity")
 			animation.fromValue = 1
@@ -137,6 +138,20 @@ class GameViewController: UIViewController {
 		bArray.remove(at: bubble_bArray_index)
 		for idx in bubble_bArray_index ..< bArray.count {
 			bArray[idx].bArray_index -= 1
+		}
+	}
+	
+	func combo(_ value: Int) -> Double{
+		if(comboStack.isEmpty()){
+			comboStack.push(value)
+			return Double(value)
+		}else if(comboStack.peek() != value){
+			comboStack.clear()
+			comboStack.push(value)
+			return Double(value)
+		}else{
+			comboStack.push(value)
+			return Double(value) * 1.5
 		}
 	}
 	//// / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
