@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750FFAB424656C30009280CC /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750FFAB324656C30009280CC /* Bubble.swift */; };
 		75435FBA245D1D95005DE2A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75435FB9245D1D95005DE2A1 /* AppDelegate.swift */; };
 		75435FBC245D1D95005DE2A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75435FBB245D1D95005DE2A1 /* SceneDelegate.swift */; };
 		75435FBE245D1D95005DE2A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75435FBD245D1D95005DE2A1 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		750FFAB324656C30009280CC /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
 		75435FB6245D1D95005DE2A1 /* Chess POP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chess POP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75435FB9245D1D95005DE2A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75435FBB245D1D95005DE2A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,13 +113,14 @@
 			children = (
 				75435FB9245D1D95005DE2A1 /* AppDelegate.swift */,
 				75435FBB245D1D95005DE2A1 /* SceneDelegate.swift */,
+				75435FBF245D1D95005DE2A1 /* Main.storyboard */,
 				75435FEB245D2649005DE2A1 /* MainNavigatorController.swift */,
 				75435FBD245D1D95005DE2A1 /* ViewController.swift */,
 				75435FED245D2A38005DE2A1 /* NewGameViewController.swift */,
 				759A0C67245D89A6001664BB /* WelcomeViewController.swift */,
 				75435FEF245D30CD005DE2A1 /* GameViewController.swift */,
 				75435FF1245D312E005DE2A1 /* HighScoreViewController.swift */,
-				75435FBF245D1D95005DE2A1 /* Main.storyboard */,
+				750FFAB324656C30009280CC /* Bubble.swift */,
 				75435FC2245D1D97005DE2A1 /* Assets.xcassets */,
 				75435FC4245D1D97005DE2A1 /* LaunchScreen.storyboard */,
 				75435FC7245D1D97005DE2A1 /* Info.plist */,
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75435FBE245D1D95005DE2A1 /* ViewController.swift in Sources */,
+				750FFAB424656C30009280CC /* Bubble.swift in Sources */,
 				759A0C68245D89A6001664BB /* WelcomeViewController.swift in Sources */,
 				75435FF2245D312E005DE2A1 /* HighScoreViewController.swift in Sources */,
 				75435FEC245D2649005DE2A1 /* MainNavigatorController.swift in Sources */,
