@@ -47,6 +47,7 @@ class NewGameViewController: UIViewController {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let vc = segue.destination as? GameViewController{
+			vc.name = name
 			vc.time = time
 			vc.maxBubbles = maxBubbles
 		}

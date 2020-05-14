@@ -13,7 +13,11 @@ class WelcomeViewController: UIViewController {
 	@IBOutlet weak var welcomeButton: UIButton!
 
 	override func viewDidLoad() {
-		
+		if var rankingDictionary = UserDefaults.standard.dictionary(forKey: "ranking") as! [String: String]?{
+			rankingDictionary.updateValue("Anonymous", forKey: "userName")
+			rankingDictionary.updateValue("0", forKey: "userScore")
+			UserDefaults.standard.set(rankingDictionary, forKey:"ranking")
+		}
 		super.viewDidLoad()
         // Do any additional setup after loading the view.
     }

@@ -10,10 +10,13 @@ import UIKit
 
 class GameViewController: UIViewController {
 	var rankingDictionary = [String : String]()
+	var name: String = "Annonymous"
 	var time: Int = 0
 	var timer: Timer?
 	var maxBubbles: Int = 0
-	var score: Double = 0
+	var score: Int = 0
+	let initial_hscore = Int(UserDefaults.standard.dictionary(forKey: "ranking")!["userScore"] as! String)!
+	var hscore: Int = 0
 	var bArray = Array<Bubble>()
 	var comboStack = StackInt()
 	let MAXIMUM_DIAMETER :UInt32 = 100
@@ -21,12 +24,7 @@ class GameViewController: UIViewController {
 	let PADDING :UInt32 = 10
 	@IBOutlet weak var timeLb: UILabel!
 	@IBOutlet weak var hscoreLb: UILabel!
-	@IBOutlet weak var nameTf: UITextField!
-	@IBOutlet weak var scoreTf: UITextField!
 	@IBOutlet weak var scoreLb: UILabel!
-	@IBAction func save(_ sender: UIButton) {
-		saveRanking(name: nameTf.text, score: scoreTf.text)
-	}
 	
 	//// / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 	// LIFE CYCLE //
@@ -40,11 +38,17 @@ class GameViewController: UIViewController {
 		
 		// Highscore
 		
+		hscoreLb.text = String(initial_hscore)
+		hscore = initial_hscore
+
+		
+
+	
 		// Score
 		scoreLb.text = String("0")
 		
 		// Bubbles
-		bubbleGenerate()
+		bubbleGenerateBeginning()
     }
     
 	override func viewWillDisappear(_ animated: Bool){
@@ -60,21 +64,23 @@ class GameViewController: UIViewController {
 	@objc func timerCountDown(){
 		time = time - 1
 		self.timeLb.text = String(time)
-		if time <= 0 {
+		if time == 0 {
 			if let timer = timer {
 				timer.invalidate()
-				self.view.isUserInteractionEnabled =  false 
+				self.view.isUserInteractionEnabled =  false
+				saveRanking(name: name, score: score)
 			}
 		}
-		bubbleGenerate()
+		
+		bubbleGenerateDuringGame()
 	}
 	
-	//// / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
-	// GENERATE BUBBLES //
-	func bubbleGenerate() {
-		// #Generate bubbles on the screen every second
-		var i :Int = self.bArray.count
-		while(i < maxBubbles){
+	
+	// RANDOMLY GENERATE AND REMOVE BUBBLES //
+	func bubbleGenerateBeginning(){
+		var currentNumberBubbles :Int = self.bArray.count
+		
+		while(currentNumberBubbles < maxBubbles){
 			let bubble = Bubble()
 			let bubble_size = UInt32.random(in: 60...MAXIMUM_DIAMETER)
 			bubble.frame = CGRect(
@@ -91,11 +97,53 @@ class GameViewController: UIViewController {
 				bArray.append(bubble)
 				bubble.bArray_index = bArray.count - 1 // array index starts from 0
 				self.view.addSubview(bubble)
-				i = i + 1
+				currentNumberBubbles = currentNumberBubbles + 1
 			}
 		}
 	}
-    
+	
+	func randomlyRemoveBubbles(){
+		// Logic: At the beginning, every bubble has attribute bArray_index corresponding to its index in bArray.
+		// We then loop through bArray REVERSELY.
+		// At any element i in the loop, if it is randomly selected to be remove, we will decrement bArry_index of all the elements that have been looped through.
+		let bArrayCountAtBeginning = bArray.count
+		for i in (0 ..< bArrayCountAtBeginning).reversed(){
+			// The probability of being removed is 20%
+			if(Int.random(in: 1...5) == 1 && bArray.count > 5){
+				for idx in i + 1 ..< bArray.count {
+					bArray[idx].bArray_index -= 1
+				}
+				bArray[i].removeFromSuperview()
+				bArray.remove(at: i)
+			}
+		}
+	}
+
+	func bubbleGenerateDuringGame() {
+		// #Generate bubbles on the screen every second
+		randomlyRemoveBubbles()
+		var currentNumberBubbles :Int = self.bArray.count
+		let randomUpperNumber = Int.random(in: currentNumberBubbles...maxBubbles)
+		while(currentNumberBubbles < randomUpperNumber){
+			let bubble = Bubble()
+			let bubble_size = UInt32.random(in: 60...MAXIMUM_DIAMETER)
+			bubble.frame = CGRect(
+				x: CGFloat(PADDING + arc4random_uniform(screenWidth - MAXIMUM_DIAMETER - 2 * PADDING )),
+				y: CGFloat(TOP_BARS_HEIGHT + arc4random_uniform(screenHeight - MAXIMUM_DIAMETER - PADDING - TOP_BARS_HEIGHT)),
+				width: CGFloat(bubble_size),
+				height: CGFloat(bubble_size)
+			)
+			bubble.layer.cornerRadius = bubble.frame.height / 2
+			if(isNotOverlap(bubble)){ // Add overlap condition here
+				bubble.addTarget(self, action: #selector(bubblePressed), for : UIControl.Event.touchUpInside)
+				bArray.append(bubble)
+				bubble.bArray_index = bArray.count - 1 // array index starts from 0
+				self.view.addSubview(bubble)
+				currentNumberBubbles = currentNumberBubbles + 1
+			}
+		}
+	}
+	
 	func isNotOverlap(_ bubble:Bubble) -> Bool{
 		for b in bArray{
 			if(bubble.bArray_index != b.bArray_index && bubble.frame.intersects(b.frame)){
@@ -116,21 +164,31 @@ class GameViewController: UIViewController {
 	}
 	
 	//// / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
-	// REMOVE BUBBLE //
+	// REMOVE BUBBLE ON PRESS//
 	@objc func bubblePressed(_ bubble:Bubble){
 		// # Remove the bubble from the screen
 		score = score + combo(bubble.value)
 		scoreLb.text = String(score)
-		let animation = CABasicAnimation(keyPath:"opacity")
-			animation.fromValue = 1
-			animation.toValue = 0
-			animation.duration = 2.0
-			bubble.layer.add(animation, forKey:nil)
-			bubble.removeFromSuperview()
-		removeBubbleFromArray(bubble)
+		if(score > hscore){
+			hscore = score
+			hscoreLb.text = String(hscore)
+		}
+		CATransaction.begin()
+		CATransaction.setCompletionBlock({
+			// remove from super view
+		  bubble.removeFromSuperview()
+		})
+		let animation = CABasicAnimation(keyPath: "opacity")
+		animation.fromValue = 1
+		animation.toValue = 0
+		animation.duration = 0.5
+		bubble.layer.add(animation, forKey:nil)
+		CATransaction.commit()
+		
+		removePressedBubbleFromArray(bubble)
 	}
 	
-	func removeBubbleFromArray(_ bubble:Bubble){
+	func removePressedBubbleFromArray(_ bubble:Bubble){
 		// # Remove the bubble from the screen
 		// Logic: Change the bArray_index field of the bubbles
 		// placed after the popped bubble.
@@ -141,28 +199,29 @@ class GameViewController: UIViewController {
 		}
 	}
 	
-	func combo(_ value: Int) -> Double{
+	func combo(_ value: Int) -> Int{
 		if(comboStack.isEmpty()){
 			comboStack.push(value)
-			return Double(value)
+			return value
 		}else if(comboStack.peek() != value){
 			comboStack.clear()
 			comboStack.push(value)
-			return Double(value)
+			return value
 		}else{
 			comboStack.push(value)
-			return Double(value) * 1.5
+			return Int(round(Double(value) * 1.5))
 		}
 	}
 	//// / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 	// SAVE SCORE //
-	func saveRanking(name:String?, score:String?){
-		rankingDictionary.updateValue(name!, forKey: "userName")
-		rankingDictionary.updateValue(score!, forKey: "userScore")
-		UserDefaults.standard.set(rankingDictionary, forKey:"ranking")
+	func saveRanking(name:String?, score: Int){
+		if(score > initial_hscore){
+			rankingDictionary.updateValue(name!, forKey: "userName")
+			rankingDictionary.updateValue(String(score), forKey: "userScore")
+			UserDefaults.standard.set(rankingDictionary, forKey:"ranking")
+		}
 	}
 	
-	
-	
-	
 }
+
+

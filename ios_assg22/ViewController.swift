@@ -13,7 +13,11 @@ class ViewController: UIViewController {
 	@IBOutlet weak var nameTf: UITextField!
 	
 	@IBAction func newGame(_ sender: UIButton) {
-		nameText = nameTf.text!
+		if (nameTf.text == ""){
+			nameText = randomString(length: 8)
+		}else{
+			nameText = nameTf.text!
+		}
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -25,7 +29,11 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 	}
-
+	
+	func randomString(length: Int) -> String {
+	  let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	  return String((0..<length).map{ _ in letters.randomElement()! })
+	}
 
 }
 
