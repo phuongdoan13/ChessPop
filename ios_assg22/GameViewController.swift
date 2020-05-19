@@ -25,6 +25,7 @@ class GameViewController: UIViewController {
 	@IBOutlet weak var timeLb: UILabel!
 	@IBOutlet weak var hscoreLb: UILabel!
 	@IBOutlet weak var scoreLb: UILabel!
+	@IBOutlet weak var addPoint: UILabel!
 	
 	//// / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / /
 	// LIFE CYCLE //
@@ -41,8 +42,8 @@ class GameViewController: UIViewController {
 		hscoreLb.text = String(initial_hscore)
 		hscore = initial_hscore
 
-		
-
+		//add Point
+		addPoint.text = ""
 	
 		// Score
 		scoreLb.text = String("0")
@@ -69,6 +70,16 @@ class GameViewController: UIViewController {
 				timer.invalidate()
 				self.view.isUserInteractionEnabled =  false
 				saveRanking(name: name, score: score)
+				if(score > initial_hscore){
+					let alert = UIAlertController(title: "Time's Up!", message: "Congratulation! You got a new high score of \(score) points. Awesome!", preferredStyle: .alert)
+					alert.addAction(UIAlertAction(title: "Sweet!!!", style: .default, handler: nil))
+					self.present(alert, animated: true, completion: nil)
+				}else{
+					let alert = UIAlertController(title: "Time's Up!", message: "Your time is up! You got a score of \(score) points. Awesome!", preferredStyle: .alert)
+					alert.addAction(UIAlertAction(title: "Sweet!!!", style: .default, handler: nil))
+					self.present(alert, animated: true, completion: nil)
+				}
+				
 			}
 		}
 		
@@ -167,8 +178,10 @@ class GameViewController: UIViewController {
 	// REMOVE BUBBLE ON PRESS//
 	@objc func bubblePressed(_ bubble:Bubble){
 		// # Remove the bubble from the screen
-		score = score + combo(bubble.value)
+		let comboValue = combo(bubble.value)
+		score = score + comboValue
 		scoreLb.text = String(score)
+		addPoint.text = "+\(String(comboValue))"
 		if(score > hscore){
 			hscore = score
 			hscoreLb.text = String(hscore)
@@ -176,14 +189,26 @@ class GameViewController: UIViewController {
 		CATransaction.begin()
 		CATransaction.setCompletionBlock({
 			// remove from super view
-		  bubble.removeFromSuperview()
+			//self.addPoint.removeFromSuperview()
+			bubble.removeFromSuperview()
 		})
-		let animation = CABasicAnimation(keyPath: "opacity")
-		animation.fromValue = 1
-		animation.toValue = 0
-		animation.duration = 0.5
-		bubble.layer.add(animation, forKey:nil)
+		
+		let buttonAnimation = CABasicAnimation(keyPath: "opacity")
+		buttonAnimation.fromValue = 1
+		buttonAnimation.toValue = 0
+		buttonAnimation.duration = 0.5
+		bubble.layer.add(buttonAnimation, forKey:nil)
 		CATransaction.commit()
+		
+		let pulse = CASpringAnimation(keyPath: "transform.scale")
+		pulse.duration = 0.6
+		pulse.fromValue = 0.8
+		pulse.toValue = 1.0
+		pulse.autoreverses = true
+		pulse.repeatCount = 100
+		pulse.initialVelocity = 0.5
+		pulse.damping = 1.0
+		addPoint.layer.add(pulse, forKey: nil)
 		
 		removePressedBubbleFromArray(bubble)
 	}
