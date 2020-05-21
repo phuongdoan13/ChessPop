@@ -63,6 +63,7 @@
 		75435FF1245D312E005DE2A1 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		757D08B12466685600BC005D /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		759A0C67245D89A6001664BB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		759BB906247677C800FD9631 /* bubbleBurstFreesound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubbleBurstFreesound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +94,7 @@
 		75435FAD245D1D95005DE2A1 = {
 			isa = PBXGroup;
 			children = (
+				759BB906247677C800FD9631 /* bubbleBurstFreesound.wav */,
 				75435FB8245D1D95005DE2A1 /* ios_assg22 */,
 				75435FCF245D1D97005DE2A1 /* ios_assg22Tests */,
 				75435FDA245D1D97005DE2A1 /* ios_assg22UITests */,

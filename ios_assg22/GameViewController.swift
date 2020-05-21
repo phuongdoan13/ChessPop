@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AVFoundation
 class GameViewController: UIViewController {
 	var rankingDictionary = [String : String]()
 	var name: String = "Annonymous"
@@ -22,6 +22,7 @@ class GameViewController: UIViewController {
 	let MAXIMUM_DIAMETER :UInt32 = 100
 	let TOP_BARS_HEIGHT :UInt32 = 200
 	let PADDING :UInt32 = 10
+	//var audioPlayer = AVAudioPlayer()
 	@IBOutlet weak var timeLb: UILabel!
 	@IBOutlet weak var hscoreLb: UILabel!
 	@IBOutlet weak var scoreLb: UILabel!
@@ -32,7 +33,7 @@ class GameViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		self.view.backgroundColor = UIColor(patternImage: UIImage(named: "VioletPrincessPhonewpp")!)
+		self.view.backgroundColor = UIColor(patternImage: UIImage(named: "VioletPrincessPhonewppKyotoAnimation")!) //copyright belongs to KyotoAnimation
 		// Timer
 		timeLb.text = String(time)
 		timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerCountDown), userInfo: nil, repeats: true)
@@ -108,6 +109,15 @@ class GameViewController: UIViewController {
 				bArray.append(bubble)
 				bubble.bArray_index = bArray.count - 1 // array index starts from 0
 				self.view.addSubview(bubble)
+				let pulse = CASpringAnimation(keyPath: "transform.scale")
+					pulse.duration = 0.6
+					pulse.fromValue = 0.8
+					pulse.toValue = 1.0
+					pulse.autoreverses = true
+					pulse.repeatCount = 100
+					pulse.initialVelocity = 0.5
+					pulse.damping = 1.0
+				bubble.layer.add(pulse, forKey:nil)
 				currentNumberBubbles = currentNumberBubbles + 1
 			}
 		}
@@ -150,6 +160,15 @@ class GameViewController: UIViewController {
 				bArray.append(bubble)
 				bubble.bArray_index = bArray.count - 1 // array index starts from 0
 				self.view.addSubview(bubble)
+				let pulse = CASpringAnimation(keyPath: "transform.scale")
+					pulse.duration = 0.6
+					pulse.fromValue = 0.8
+					pulse.toValue = 1.0
+					pulse.autoreverses = true
+					pulse.repeatCount = 100
+					pulse.initialVelocity = 0.5
+					pulse.damping = 1.0
+				bubble.layer.add(pulse, forKey:nil)
 				currentNumberBubbles = currentNumberBubbles + 1
 			}
 		}
@@ -192,7 +211,7 @@ class GameViewController: UIViewController {
 			//self.addPoint.removeFromSuperview()
 			bubble.removeFromSuperview()
 		})
-		
+		bubble.setImage(UIImage(named: "pop"), for: UIControl.State.normal)
 		let buttonAnimation = CABasicAnimation(keyPath: "opacity")
 		buttonAnimation.fromValue = 1
 		buttonAnimation.toValue = 0
@@ -209,6 +228,9 @@ class GameViewController: UIViewController {
 		pulse.initialVelocity = 0.5
 		pulse.damping = 1.0
 		addPoint.layer.add(pulse, forKey: nil)
+		
+		bubble.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+		
 		
 		removePressedBubbleFromArray(bubble)
 	}
