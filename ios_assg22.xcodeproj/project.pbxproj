@@ -22,6 +22,7 @@
 		75435FF2245D312E005DE2A1 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75435FF1245D312E005DE2A1 /* HighScoreViewController.swift */; };
 		757D08B22466685600BC005D /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757D08B12466685600BC005D /* Stack.swift */; };
 		759A0C68245D89A6001664BB /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A0C67245D89A6001664BB /* WelcomeViewController.swift */; };
+		75C6E91124767C46007BD071 /* bubbleBurstFreesound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 75C6E91024767C46007BD071 /* bubbleBurstFreesound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +64,7 @@
 		75435FF1245D312E005DE2A1 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		757D08B12466685600BC005D /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		759A0C67245D89A6001664BB /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		759BB906247677C800FD9631 /* bubbleBurstFreesound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubbleBurstFreesound.wav; sourceTree = "<group>"; };
+		75C6E91024767C46007BD071 /* bubbleBurstFreesound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bubbleBurstFreesound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +95,6 @@
 		75435FAD245D1D95005DE2A1 = {
 			isa = PBXGroup;
 			children = (
-				759BB906247677C800FD9631 /* bubbleBurstFreesound.wav */,
 				75435FB8245D1D95005DE2A1 /* ios_assg22 */,
 				75435FCF245D1D97005DE2A1 /* ios_assg22Tests */,
 				75435FDA245D1D97005DE2A1 /* ios_assg22UITests */,
@@ -118,6 +118,7 @@
 				75435FB9245D1D95005DE2A1 /* AppDelegate.swift */,
 				75435FBB245D1D95005DE2A1 /* SceneDelegate.swift */,
 				75435FBF245D1D95005DE2A1 /* Main.storyboard */,
+				75C6E91024767C46007BD071 /* bubbleBurstFreesound.wav */,
 				75435FEB245D2649005DE2A1 /* MainNavigatorController.swift */,
 				75435FBD245D1D95005DE2A1 /* ViewController.swift */,
 				759A0C67245D89A6001664BB /* WelcomeViewController.swift */,
@@ -258,6 +259,7 @@
 				75435FC6245D1D97005DE2A1 /* LaunchScreen.storyboard in Resources */,
 				75435FC3245D1D97005DE2A1 /* Assets.xcassets in Resources */,
 				75435FC1245D1D95005DE2A1 /* Main.storyboard in Resources */,
+				75C6E91124767C46007BD071 /* bubbleBurstFreesound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

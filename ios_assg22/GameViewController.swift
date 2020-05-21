@@ -22,7 +22,10 @@ class GameViewController: UIViewController {
 	let MAXIMUM_DIAMETER :UInt32 = 100
 	let TOP_BARS_HEIGHT :UInt32 = 200
 	let PADDING :UInt32 = 10
-	//var audioPlayer = AVAudioPlayer()
+	let bubblePop = URL(fileURLWithPath: Bundle.main.path(forResource: "bubbleBurstFreesound", ofType: "wav")!)
+	var audioPlayer = AVAudioPlayer()
+
+
 	@IBOutlet weak var timeLb: UILabel!
 	@IBOutlet weak var hscoreLb: UILabel!
 	@IBOutlet weak var scoreLb: UILabel!
@@ -197,42 +200,47 @@ class GameViewController: UIViewController {
 	// REMOVE BUBBLE ON PRESS//
 	@objc func bubblePressed(_ bubble:Bubble){
 		// # Remove the bubble from the screen
-		let comboValue = combo(bubble.value)
-		score = score + comboValue
-		scoreLb.text = String(score)
-		addPoint.text = "+\(String(comboValue))"
-		if(score > hscore){
-			hscore = score
-			hscoreLb.text = String(hscore)
+		do{
+			audioPlayer = try AVAudioPlayer(contentsOf: bubblePop)
+			audioPlayer.play()
+			let comboValue = combo(bubble.value)
+			score = score + comboValue
+			scoreLb.text = String(score)
+			addPoint.text = "+\(String(comboValue))"
+			if(score > hscore){
+				hscore = score
+				hscoreLb.text = String(hscore)
+			}
+			CATransaction.begin()
+			CATransaction.setCompletionBlock({
+				
+				bubble.removeFromSuperview()
+			})
+			bubble.setImage(UIImage(named: "pop"), for: UIControl.State.normal)
+			let buttonAnimation = CABasicAnimation(keyPath: "opacity")
+			buttonAnimation.fromValue = 1
+			buttonAnimation.toValue = 0
+			buttonAnimation.duration = 0.5
+			bubble.layer.add(buttonAnimation, forKey:nil)
+			CATransaction.commit()
+			
+			let pulse = CASpringAnimation(keyPath: "transform.scale")
+			pulse.duration = 0.6
+			pulse.fromValue = 0.8
+			pulse.toValue = 1.0
+			pulse.autoreverses = true
+			pulse.repeatCount = 100
+			pulse.initialVelocity = 0.5
+			pulse.damping = 1.0
+			addPoint.layer.add(pulse, forKey: nil)
+			
+			bubble.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+			
+			
+			removePressedBubbleFromArray(bubble)
+		}catch{
+			print("NO sound")
 		}
-		CATransaction.begin()
-		CATransaction.setCompletionBlock({
-			// remove from super view
-			//self.addPoint.removeFromSuperview()
-			bubble.removeFromSuperview()
-		})
-		bubble.setImage(UIImage(named: "pop"), for: UIControl.State.normal)
-		let buttonAnimation = CABasicAnimation(keyPath: "opacity")
-		buttonAnimation.fromValue = 1
-		buttonAnimation.toValue = 0
-		buttonAnimation.duration = 0.5
-		bubble.layer.add(buttonAnimation, forKey:nil)
-		CATransaction.commit()
-		
-		let pulse = CASpringAnimation(keyPath: "transform.scale")
-		pulse.duration = 0.6
-		pulse.fromValue = 0.8
-		pulse.toValue = 1.0
-		pulse.autoreverses = true
-		pulse.repeatCount = 100
-		pulse.initialVelocity = 0.5
-		pulse.damping = 1.0
-		addPoint.layer.add(pulse, forKey: nil)
-		
-		bubble.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-		
-		
-		removePressedBubbleFromArray(bubble)
 	}
 	
 	func removePressedBubbleFromArray(_ bubble:Bubble){
